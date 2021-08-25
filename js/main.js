@@ -42,17 +42,21 @@ cardBtn.addEventListener("click", (e) => {
     const display = getComputedStyle(cardLinks).getPropertyValue("display");
     if(display === "flex"){
         cardLinks.style.display = "none";
+        cardBtn.classList.remove("active");
         if(window.innerWidth < 330){
             cardBtnWrapper.style.display = "block";
         }
     }else{
         cardLinks.style.display = "flex";
+        cardBtn.classList.add("active");
+
         setTimeout(() => {
             window.addEventListener("click", hideCardLinks);
             window.addEventListener("keydown", handleHideCardLinks);
         })
         if(window.innerWidth < 330){
             cardBtnWrapper.style.display = "none";
+            console.log(window.innerWidth);
 
         }
     }
@@ -67,6 +71,7 @@ function handleHideCardLinks(e){
 function hideCardLinks(){
     cardBtnWrapper.style.display = "block";
     cardLinks.style.display = "none";
+    cardBtn.classList.remove("active");
     window.removeEventListener("click", hideCardLinks);
     window.removeEventListener("keydown", handleHideCardLinks);
 

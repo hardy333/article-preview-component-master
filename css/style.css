@@ -134,6 +134,7 @@ img {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  z-index: 100;
 }
 
 .card__user-img {
@@ -155,12 +156,11 @@ img {
 }
 
 .card__btn-wrapper {
-  margin-left: auto;
   border-radius: 100%;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  position: relative;
+  position: absolute;
   z-index: 200;
+  right: 4rem;
+  bottom: 4rem;
 }
 
 .card__btn {
@@ -185,10 +185,18 @@ img {
           filter: brightness(90%);
 }
 
+.card__btn.active {
+  background-color: var(--Desaturated-Dark-Blue);
+}
+
+.card__btn.active svg path {
+  fill: var(--Light-Grayish-Blue);
+}
+
 .card__links {
   padding: 1.8rem 4rem;
-  z-index: 100;
   position: absolute;
+  z-index: 100;
   bottom: 100%;
   left: 50%;
   -webkit-transform: translate(-50%, -4.1rem);
@@ -279,6 +287,10 @@ img {
   .card__paragraph {
     margin: 2rem 0rem 3rem;
   }
+  .card__btn-wrapper {
+    right: 3rem;
+    bottom: 2.5rem;
+  }
   .card__links {
     width: 100%;
     padding-top: 3.1rem;
@@ -311,6 +323,16 @@ img {
 @media screen and (max-width: 280px) {
   html {
     font-size: 50%;
+  }
+  .card__user-img {
+    margin-right: 1rem;
+  }
+  .card__user-name {
+    max-width: 9rem;
+  }
+  .card__btn-wrapper {
+    right: 2rem;
+    right: 3rem;
   }
   .card__link-item + .card__link-item {
     margin-left: 1.5rem;
